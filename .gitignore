@@ -26,3 +26,7 @@ target/
 db.ini
 .idea
 .settings
+.git
+.metadata/
+.recommenders/
+Servers/
