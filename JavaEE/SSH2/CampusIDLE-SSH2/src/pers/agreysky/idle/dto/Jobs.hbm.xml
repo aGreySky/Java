@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-20 21:00:47 by Hibernate Tools 5.2.5.Final -->
+<hibernate-mapping>
+ <class catalog="campusidle" name="pers.agreysky.idle.dto.Jobs" table="jobs">
+  <id name="id" type="java.lang.Integer">
+   <column name="id"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="pers.agreysky.idle.dto.User" fetch="select" name="user" lazy="false">
+   <column name="userId" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="name" type="string">
+   <column length="100" name="name" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="personNum" type="string">
+   <column length="100" name="personNum" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="overview" type="string">
+   <column length="100" name="overview" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="welfare" type="string">
+   <column length="100" name="welfare"/>
+  </property>
+  <property generated="never" lazy="false" name="contact" type="string">
+   <column length="100" name="contact" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="accDate" type="string">
+   <column length="100" name="accDate" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="reward" type="string">
+   <column length="100" name="reward" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="schedule" type="string">
+   <column length="100" name="schedule" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="pName" type="string">
+   <column length="100" name="pName" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="type" type="string">
+   <column length="100" name="type" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

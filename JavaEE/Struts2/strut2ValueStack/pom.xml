@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>per.agreysky</groupId>
+  <artifactId>strut2ValueStack</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>strut2ValueStack</name>
+  <url>http://maven.apache.org</url>
+
+
+  <profiles>  
+	       <profile>  
+	           <id>jdk-1.8</id>  
+	           <!-- 另外一种激活方式 -->  
+	           <activation>  
+	               <activeByDefault>true</activeByDefault>  
+	               <jdk>1.8</jdk>  
+	           </activation>  
+	           <properties>  
+	               <maven.compiler.source>1.8</maven.compiler.source>  
+	               <maven.compiler.target>1.8</maven.compiler.target>  
+	               <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>  
+	           </properties>  
+	       </profile>  
+	   </profiles>  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+  		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+    <dependency>
+    	<groupId>org.apache.struts</groupId>
+    	<artifactId>struts2-core</artifactId>
+    	<version>2.5.10.1</version>
+    </dependency>
+    <!-- 添加Hibernate依赖 -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>3.6.10.Final</version>
+        </dependency>
+         <!-- mysql数据库的驱动包 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.6</version>
+        </dependency>
+  </dependencies>
+</project>

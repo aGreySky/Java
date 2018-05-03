@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+<type-mapping>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="40"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="999"
+		not-null="false">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="REAL" hibernate-type="float" precision="12"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="8"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARBINARY" hibernate-type="binary"
+		not-null="false">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="TIMESTAMP" hibernate-type="timestamp"
+		length="19" not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="8"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="8"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="TIMESTAMP" hibernate-type="timestamp"
+		length="19" not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="BIT" hibernate-type="boolean"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARBINARY" hibernate-type="binary"
+		not-null="false">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="8"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="INTEGER" hibernate-type="int"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+	<sql-type jdbc-type="VARCHAR" hibernate-type="string" length="20"
+		not-null="true">
+	</sql-type>
+</type-mapping>
+
+
+<table-filter match-name="lend" match-catalog="LibrarySystem"></table-filter>
+	<table-filter match-name="book" match-catalog="LibrarySystem"></table-filter>
+	<table-filter match-name="student" match-catalog="LibrarySystem"></table-filter>
+	<table-filter match-name="user" match-catalog="LibrarySystem"></table-filter>
+</hibernate-reverse-engineering>

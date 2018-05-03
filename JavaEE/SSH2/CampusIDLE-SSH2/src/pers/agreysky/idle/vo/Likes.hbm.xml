@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-18 16:55:56 by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="campusidle" dynamic-insert="false" dynamic-update="false" mutable="true" name="pers.agreysky.idle.vo.Likes" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="likes">
+        <id name="likeId" type="java.lang.Integer">
+            <column name="likeId"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="pers.agreysky.idle.vo.User" embed-xml="true" fetch="select" insert="true" name="userByLikerId" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="likerId" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="pers.agreysky.idle.vo.User" embed-xml="true" fetch="select" insert="true" name="userByOwnerId" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="ownerId" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

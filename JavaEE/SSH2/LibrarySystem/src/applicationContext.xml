@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+	<!-- action -->
+	<bean id="loginAction" class="per.agreysky.org.action.LoginAction" scope="prototype">
+		<property name="loginService" ref="loginService"></property>
+	</bean>
+	<bean id="bookAction" class="per.agreysky.org.action.BookAction" scope="prototype">
+		<property name="bookService" ref="bookService"></property>
+	</bean>
+	<bean id="findAction" class="per.agreysky.org.action.FindAction" scope="prototype">
+		<property name="findService" ref="findService"></property>
+	</bean>
+	<bean id="lendBookAction" class="per.agreysky.org.action.LendBookAction" scope="prototype">
+		<property name="lendBookService" ref="lendBookService"></property>
+	</bean>
+	<bean id="lendQueryAction" class="per.agreysky.org.action.LendQueryAction" scope="prototype">
+		<property name="lendQueryService" ref="lendQueryService"></property>
+	</bean>
+	<bean id="photoAction" class="per.agreysky.org.action.PhotoAction" scope="prototype">
+		<property name="photoService" ref="photoService"></property>
+	</bean>
+	<bean id="returnBookAction" class="per.agreysky.org.action.ReturnBookAction" scope="prototype">
+		<property name="returnBookService" ref="returnBookService"></property>
+	</bean>
+	<bean id="studentAction" class="per.agreysky.org.action.StudentAction" scope="prototype">
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+	<bean id="unCheckLendAndReturnAction" class="per.agreysky.org.action.UnCheckLendAndReturnAction" scope="prototype">
+		<property name="unCheckLendAndReturnService" ref="unCheckLendAndReturnService"></property>
+	</bean>
+	<!-- DAO -->
+	<bean id="baseDAO" class="per.agreysky.org.dao.BaseDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="bookdao" class="per.agreysky.org.dao.impl.BookDAOImpl" parent="baseDAO"></bean>
+	<bean id="lenddao" class="per.agreysky.org.dao.impl.LendDAOImpl" parent="baseDAO"></bean>
+	<bean id="studentdao" class="per.agreysky.org.dao.impl.StudentDAOImpl" parent="baseDAO"></bean>
+	<bean id="admindao" class="per.agreysky.org.dao.impl.AdminDAOImpl" parent="baseDAO"></bean>
+	
+	<!-- service -->
+	<bean id="bookService" class="per.agreysky.org.service.impl.BookServiceImpl">
+		<property name="bookdao" ref="bookdao"></property>
+		<property name="lenddao" ref="lenddao"></property>
+	</bean>
+	<bean id="findService" class="per.agreysky.org.service.impl.FindServiceImpl">
+		<property name="bookdao" ref="bookdao"></property>
+	</bean>
+	<bean id="loginService" class="per.agreysky.org.service.impl.LoginServiceImpl">
+		<property name="admindao" ref="admindao"></property>
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<bean id="lendBookService" class="per.agreysky.org.service.impl.LendBookServiceImpl">
+		<property name="bookdao" ref="bookdao"></property>
+		<property name="lenddao" ref="lenddao"></property>
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<bean id="lendQueryService" class="per.agreysky.org.service.impl.LendQueryServiceImpl">
+		<property name="lenddao" ref="lenddao"></property>
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<bean id="photoService" class="per.agreysky.org.service.impl.PhotoServiceImpl">
+		<property name="bookdao" ref="bookdao"></property>
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<bean id="returnBookService" class="per.agreysky.org.service.impl.ReturnBookServiceImpl">
+		<property name="bookdao" ref="bookdao"></property>
+		<property name="lenddao" ref="lenddao"></property>
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<bean id="studentService" class="per.agreysky.org.service.impl.StudentServiceImpl">
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<bean id="unCheckLendAndReturnService" class="per.agreysky.org.service.impl.UnCheckLendAndReturnServiceImpl">
+		<property name="lenddao" ref="lenddao"></property>
+		<property name="bookdao" ref="bookdao"></property>
+		<property name="studentdao" ref="studentdao"></property>
+	</bean>
+	<!-- 配置数据库驱动 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/LibrarySystem"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="zzq123456"></property>
+	</bean>
+	<!-- hibernate生成的映射文件 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- hibernate属性设置 -->
+        <property name="hibernateProperties">
+             <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            </props>
+        </property>
+        <property name="dataSource" ref="dataSource"></property>
+		<property name="mappingResources">
+			<list>
+				<value>per/agreysky/org/vo/Book.hbm.xml</value>
+				<value>per/agreysky/org/vo/Lend.hbm.xml</value>
+				<value>per/agreysky/org/vo/Admin.hbm.xml</value>
+				<value>per/agreysky/org/vo/Student.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 事务管理 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+</beans>

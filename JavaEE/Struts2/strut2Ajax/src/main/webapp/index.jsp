@@ -1,0 +1,153 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" isELIgnored="false"%>
+<%@taglib uri="/struts-tags" prefix="s" %>
+     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>  
+    <title>利用Hibernate进行单表的增删改查</title>  
+    <style type="text/css">  
+       table{  
+         border: 1px solid gray;  
+         border-collapse: collapse;  
+         width:60%;  
+       }  
+       td{  
+         border: 1px solid gray;  
+         padding: 5px;  
+       }  
+    </style>  
+      
+    <script type="text/javascript" src="<c:url value='/js/ajax.js'/>"></script>  
+    <script type="text/javascript">  
+       var path = "<c:url value='/'/>";  
+    </script>  
+      
+    <script type="text/javascript">  
+       function query(){  
+           var studId= document.getElementsByName("studId")[1].value;  
+           studId = studId.trim();  
+           var studName= document.getElementsByName("studName")[1].value;  
+           studName = studName.trim();  
+           var deptId= document.getElementsByName("deptId")[1].value;  
+           deptId = deptId.trim();  
+             
+           //ajax提交  
+           var ajax = new Ajax();  
+           var url = path+"/match-list.action";  
+           var params = "studId="+studId+"&studName="+studName+"&deptId="+deptId;  
+           ajax.post(url, params, function(data){  
+               if(data=="1"){  
+                   //alert(data);  
+                   window.parent.window.location.href=path;  
+               }  
+           });  
+            
+       }  
+    </script>  
+      
+      
+  </head>  
+    
+  <body>  
+  		<!-- 先调用一次action -->
+  		<s:action name="stu-list"  namespace="/"/>
+      <table>  
+           <tr>  
+             <td>学号</td> <td>姓名</td> <td>年龄</td> <td>学院编号</td> <td>操作</td>  
+           </tr>  
+           <s:if test="#request.stuList != null">
+          <s:iterator value="#request.stuList">
+               <tr>  
+                 <td>${studId }</td>
+				<td>${studName }</td>
+				<td>${age }</td>
+				<td>${deptId }</td>
+                 <td>  
+                    <a href="stu-delete.action?studId=${studId }" >删除</a>  
+                 </td>  
+               </tr>  
+          </s:iterator>
+          </s:if>
+   </table>  
+     
+      <h3>添加一个学生信息</h3>  
+      <form action="stu-add"  method="post">  
+        <table>  
+          <tr>  
+            <td>学号<font color="red">*</font></td>  
+            <td><input type="text" name="studId"> </td>  
+          </tr>  
+          <tr>  
+            <td>姓名<font color="red">*</font></td>  
+            <td><input type="text" name="studName"> </td>  
+          </tr>  
+          <tr>  
+            <td>年龄<font color="red">*</font></td>  
+            <td><input type="text" name="age"> </td>  
+          </tr>  
+          <tr>  
+            <td>学院编号<font color="red">*</font></td>  
+            <td><input type="text" name="deptId"> </td>  
+          </tr>  
+          <tr>  
+            <td colspan="2" align="center"><input type="submit" value="添加/修改"> </td>  
+          </tr>  
+        </table>  
+     </form>  
+        
+        
+      <hr/>  
+      <h3>学生查询</h3>  
+      <table>  
+          <tr>  
+            <td>学号</td>  
+            <td><input type="text" name="studId"> </td>  
+          </tr>  
+          <tr>  
+            <td>姓名</td>  
+            <td><input type="text" name="studName"> </td>  
+          </tr>  
+          <tr>  
+            <td>学院编号</td>  
+            <td><input type="text" name="deptId"> </td>  
+          </tr>  
+          <tr>  
+            <td colspan="2" align="center">  
+            <input type="button" onclick="query();" value="查询"> </td>  
+          </tr>  
+        </table>  
+        
+          <c:if test="${!empty sessionScope.matchList }">  
+<%--         <s:if test="#request.matchList != null"> --%>
+          <h3>查询结果</h3>  
+          <table>  
+                  <tr>  
+                     <td>学号</td> <td>姓名</td> <td>年龄</td> <td>学院编号</td> <td>操作</td>  
+                  </tr>  
+                  <c:forEach items="${matchList}" var="stud" >
+                  		<tr>  
+                         <td>${stud.studId}</td>  
+                         <td>${stud.studName}</td>  
+                         <td>${stud.age}</td>  
+                         <td>${stud.deptId}</td>  
+                         <td>  
+<%--                   <s:iterator value="#request.matchList">  --%>
+<!--                        <tr>   -->
+<%--                          <td>${studId}</td>   --%>
+<%--                          <td>${studName}</td>   --%>
+<%--                          <td>${age}</td>   --%>
+<%--                          <td>${deptId}</td>   --%>
+<!--                          <td>   -->
+                            <a href="stu-delete.action?studId=${studId }" >删除</a>
+                         </td>  
+                       </tr>  
+                       </c:forEach>
+<%--                   </s:iterator> --%>
+            </table>  
+            </c:if>
+<%--         </s:if>   --%>
+        
+        
+  </body>  
+</html>  

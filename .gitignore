@@ -1,0 +1,28 @@
+# Windows:
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python:
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
+
+
+# Java:
+*.jar
+*.class
+.classpath
+.project
+.springBeans
+classes/
+target/
+
+
+# My configurations:
+db.ini
+.idea
+.settings

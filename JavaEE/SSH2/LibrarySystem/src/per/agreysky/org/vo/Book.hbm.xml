@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-25 21:10:18 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class catalog="LibrarySystem" name="per.agreysky.org.vo.Book" table="book">
+  <id name="bookId" type="java.lang.Integer">
+            <column name="bookId" />
+            <generator class="identity" />
+        </id>
+  <property generated="never" lazy="false" name="ISBN" type="string">
+   <column length="20" name="ISBN" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="bookName" type="string">
+   <column length="40" name="bookName" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="author" type="string">
+   <column length="8" name="author" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="publisher" type="string">
+   <column length="20" name="publisher" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="price" type="float">
+   <column name="price" not-null="true" precision="12" scale="0"/>
+  </property>
+  <property generated="never" lazy="false" name="cnum" type="int">
+   <column name="cnum" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="snum" type="int">
+   <column name="snum" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="summary" type="string">
+   <column length="999" name="summary"/>
+  </property>
+  <property generated="never" lazy="false" name="photo">
+   <column name="photo"/>
+  </property>
+ </class>
+</hibernate-mapping>

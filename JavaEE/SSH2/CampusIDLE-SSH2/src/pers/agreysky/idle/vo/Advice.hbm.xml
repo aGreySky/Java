@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-18 16:55:56 by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="campusidle" dynamic-insert="false" dynamic-update="false" mutable="true" name="pers.agreysky.idle.vo.Advice" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="advice">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="pers.agreysky.idle.vo.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="userId" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="advice" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="advice"/>
+        </property>
+    </class>
+</hibernate-mapping>

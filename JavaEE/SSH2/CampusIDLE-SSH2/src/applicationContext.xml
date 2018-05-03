@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+	
+	<!-- action -->
+	<bean id="loginregister" class="pers.agreysky.idle.action.LoginAndRegisterAction" scope="prototype">
+		<property name="loginAndRegisterActionService" ref="loginAndRegisterActionService"></property>
+	</bean>
+	<bean id="advice" class="pers.agreysky.idle.action.AdviceAction" scope="prototype">
+		<property name="adviceActionService" ref="adviceActionService"></property>
+	</bean>
+	<bean id="myFriend" class="pers.agreysky.idle.action.DoMyFriendsAction" scope="prototype">
+		<property name="doMyFriendsActionService" ref="doMyFriendsActionService"></property>
+	</bean>
+	<bean id="myItem" class="pers.agreysky.idle.action.DoMyItemsAction" scope="prototype">
+		<property name="doMyItemsActionService" ref="doMyItemsActionService"></property>
+	</bean>
+	<bean id="myHelp" class="pers.agreysky.idle.action.DoMyHelpsAction" scope="prototype">
+		<property name="doMyHelpsActionService" ref="doMyHelpsActionService"></property>
+	</bean>
+	<bean id="myJob" class="pers.agreysky.idle.action.DoMyJobsAction" scope="prototype">
+		<property name="doMyJobsActionService" ref="doMyJobsActionService"></property>
+	</bean>
+	<bean id="items" class="pers.agreysky.idle.action.FindKindOfItemsAndSearchItemsAction" scope="prototype">
+		<property name="findKindOfItemsAndSearchItemsActionService" ref="findKindOfItemsAndSearchItemsActionService"></property>
+	</bean>
+	<bean id="findPwdByPhone" class="pers.agreysky.idle.action.FindPasswordByPhoneAction" scope="prototype">
+		<property name="findPasswordByPhoneActionService" ref="findPasswordByPhoneActionService"></property>
+	</bean>
+	<bean id="personDetails" class="pers.agreysky.idle.action.PersonDetailsAction" scope="prototype">
+		<property name="personDetailsActionService" ref="personDetailsActionService"></property>
+	</bean>
+	
+	
+	<!-- service -->
+	<bean id="loginAndRegisterActionService" class="pers.agreysky.idle.service.impl.LoginAndRegisterActionServiceImpl">
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="adviceActionService" class="pers.agreysky.idle.service.impl.AdviceActionServiceImpl">
+		<property name="advicedao" ref="advicedao"></property>
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="doMyFriendsActionService" class="pers.agreysky.idle.service.impl.DoMyFriendsActionServiceImpl">
+		<property name="friendsdao" ref="friendsdao"></property>
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="doMyItemsActionService" class="pers.agreysky.idle.service.impl.DoMyItemsActionServiceImpl">
+		<property name="itemsdao" ref="itemsdao"></property>
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="doMyHelpsActionService" class="pers.agreysky.idle.service.impl.DoMyHelpsActionServiceImpl">
+		<property name="helpsdao" ref="helpsdao"></property>
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="doMyJobsActionService" class="pers.agreysky.idle.service.impl.DoMyJobsActionServiceImpl">
+		<property name="jobsdao" ref="jobsdao"></property>
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="findKindOfItemsAndSearchItemsActionService" class="pers.agreysky.idle.service.impl.FindKindOfItemsAndSearchItemsActionServiceImpl">
+		<property name="friendsdao" ref="friendsdao"></property>
+		<property name="helpsdao" ref="helpsdao"></property>
+		<property name="itemsdao" ref="itemsdao"></property>
+		<property name="jobsdao" ref="jobsdao"></property>
+	</bean>
+	<bean id="findPasswordByPhoneActionService" class="pers.agreysky.idle.service.impl.FindPasswordByPhoneActionServiceImpl">
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<bean id="personDetailsActionService" class="pers.agreysky.idle.service.impl.PersonDetailsActionServiceImpl">
+		<property name="userdao" ref="userdao"></property>
+		<property name="helpsdao" ref="helpsdao"></property>
+		<property name="itemsdao" ref="itemsdao"></property>
+	</bean>
+	
+	
+	<!-- DAO -->
+	<bean id="baseDAO" class="pers.agreysky.idle.dao.BaseDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="userdao" class="pers.agreysky.idle.dao.impl.UserDAOImpl" parent="baseDAO"></bean>
+	<bean id="advicedao" class="pers.agreysky.idle.dao.impl.AdviceDAOImpl" parent="baseDAO"></bean>
+	<bean id="friendsdao" class="pers.agreysky.idle.dao.impl.FriendsDAOImpl" parent="baseDAO"></bean>
+	<bean id="itemsdao" class="pers.agreysky.idle.dao.impl.ItemsDAOImpl" parent="baseDAO"></bean>
+	<bean id="helpsdao" class="pers.agreysky.idle.dao.impl.HelpsDAOImpl" parent="baseDAO"></bean>
+	<bean id="jobsdao" class="pers.agreysky.idle.dao.impl.JobsDAOImpl" parent="baseDAO"></bean>
+
+	<!-- 配置数据库驱动 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/campusidle"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="zzq123456"></property>
+	</bean>
+	<!-- hibernate生成的映射文件 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<!-- hibernate属性设置 -->
+        <property name="hibernateProperties">
+             <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+            </props>
+        </property>
+        <property name="dataSource" ref="dataSource"></property>
+		<property name="mappingResources">
+			<list>
+				<value>pers/agreysky/idle/dto/Advice.hbm.xml</value>
+				<value>pers/agreysky/idle/dto/Friends.hbm.xml</value>
+				<value>pers/agreysky/idle/dto/Helps.hbm.xml</value>
+				<value>pers/agreysky/idle/dto/Items.hbm.xml</value>
+				<value>pers/agreysky/idle/dto/Jobs.hbm.xml</value>
+				<value>pers/agreysky/idle/dto/User.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 事务管理 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+</beans>

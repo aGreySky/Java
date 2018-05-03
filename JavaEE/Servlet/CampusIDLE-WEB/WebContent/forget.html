@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
+	<title>找回密码</title>
+	<link rel="stylesheet" type="text/css" href="css/login/common.css">
+	<link rel="stylesheet" type="text/css" href="css/login/forget.css">
+	<script src="JS/jquery-1.8.2.min.js"></script>
+	<style type="text/css">
+		input{
+			color:black;
+		}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<div class="nav_left"><a href="index.html">&lt;</a></div>
+		<div class="nav_right"><center>设置新密码</center></div>
+	</div>
+	<div class="nav" style="height:80px;background: white;">
+		<div class="nav_bottom">&nbsp;&nbsp;操作指南：为确保您的账号安全，我们将向您的注册邮箱发送一封邮件，只有按照邮件进行操作，新密码才会生效。</div>
+	</div>
+	<div class="login_cont">
+		<form method="post">
+			<div class="input_cont">
+				<input  class="input" id="user_name" required type="text" name="username" aria-label="用户名" placeholder="用户名">
+				<div class="hint">请填写符合格式的用户名</div>
+				<input  class="input" id="user_email" required type="text" name="email" aria-label="邮箱" placeholder="注册邮箱">
+				<div class="hint">密码将通过邮箱找回，请谨慎填写</div>
+				<input class="input" id="password" type="password" aria-label="新密码" placeholder="新密码（不少于 6 位）">
+				<div class="hint">请填写符合格式的密码</div>
+				<input class="input" id="repassword" type="password" aria-label="新密码" placeholder="再次输入新密码">
+				<div class="hint">请再次输入新密码</div>
+				<input type="submit" id="submit" name="button" value="发送邮件">
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript" src="JS/login/findpassword.js"></script>
+</body>
+</html>

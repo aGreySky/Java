@@ -1,0 +1,77 @@
+.login_cont {
+  margin:auto 0;
+  width: 350px;
+  display:none;
+  background-color:rgba(0,0,0,0.3);
+  padding-bottom:50px;
+   }
+  .login_cont .input_signup,
+  .login_cont .input_signin {
+    display: none;
+	width:300px;
+	margin-left:25px;
+	 }
+  .login_cont .active {
+    display: block; }
+
+.login_nav {
+  width: 350px;
+  height: 45px;
+  text-align: center;
+  margin-bottom: 20px; }
+
+.nav_slider {
+  display: inline-block; }
+  .nav_slider a {
+    display: inline-block;
+    width: 75px;
+    line-height: 35px;
+    font-size: 18px;
+    text-decoration: none;
+	color:rgba(255,255,255,1); }
+  .nav_slider .focus {
+    border-bottom: 2px solid #3cf; }
+
+.forget {
+  width: 100%;
+  text-align: right;
+  margin-top:10px; }
+  .forget a {
+    text-decoration: none;
+	color:rgba(204,204,204,1); }
+	
+	
+	
+*{
+	margin:0;
+	padding:0;
+	}
+	
+body{
+	background-image:url(../../images/toolsPicture/a.jpg);
+	}
+	
+.login_pic{
+	height:150px;
+	width:150px;
+	background:rgba(51,51,51,0.3);
+	border-radius:200px;
+	}
+	
+.login_pic img{
+	height:150px;
+	width:150px;
+	}
+	
+::-webkit-input-placeholder { /* WebKit browsers */
+    color:rgba(204,204,204,1);
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:rgba(204,204,204,1);
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:rgba(204,204,204,1);
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:rgba(204,204,204,1);
+}

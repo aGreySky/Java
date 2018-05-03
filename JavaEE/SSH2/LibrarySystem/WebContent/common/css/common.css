@@ -1,0 +1,236 @@
+body {
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft Yahei", 微软雅黑, STXihei, 华文细黑, sans-serif;
+    color: #616161;
+    box-sizing: border-box;
+}
+
+input.deafault-input {
+    padding-left: 5px;
+    height: 2rem;
+    font-size: 0.9em;
+    color: #777;
+    border: 1px solid gray;
+}
+
+input:focus:not([readonly]) {
+    border-bottom: 1px solid gray!important;
+    box-shadow: none!important;
+    transition: none!important;
+}
+
+select.deafault-select {
+    padding: 0;
+    height: 2rem;
+    color: #777;
+    border: 1px solid gray;
+}
+
+#header {
+    padding: 0 15px 0 10px;
+    min-width: 992px;
+}
+
+#courses-choose {
+    margin-top: 4rem;
+}
+
+.courses-header {
+    display: flex;
+}
+
+.courses-header-title {
+    flex-shrink: 0;
+    padding-right: 20px;
+    font-size: 18px;
+    line-height: 20px;
+}
+
+.courses-header-title-hr {
+    flex: 1 1 auto;
+    margin: 10px 0 0;
+    height: 1px;
+    border: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.16) 0, rgba(0, 0, 0, 0.02) 100%);
+    background-repeat: repeat-x;
+}
+
+.courses-card {
+    margin: 2rem auto 4rem;
+}
+
+.courses-card .card {
+    margin-right: 15px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.courses-card .card,
+.courses-card .card img {
+    width: 240px;
+    height: 120px;
+    border-radius: 3px;
+    transform: translate3d(0, 0, 0);
+    transition: all 218ms;
+}
+
+.courses-card .card:hover {
+    -webkit-transform: translate3d(0, -5px, 0);
+    transform: translate3d(0, -5px, 0);
+    box-shadow: 0 7px 21px rgba(0, 0, 0, 0.15);
+}
+
+.side-nav {
+    width: 275px;
+}
+
+.header-ul {
+    color: #666;
+    overflow: hidden;
+}
+
+.header-ul-info {
+    margin: 28px auto 13px;
+    text-align: center;
+}
+
+.header-ul-info-intro {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.header-ul-info-intro a {
+    height: auto;
+    cursor: pointer;
+}
+
+.header-ul-info-intro .courses-now-btn {
+    position: relative;
+    margin-top: -0.3rem;
+    margin-bottom: 0.4rem;
+    padding: 8px 13px;
+    line-height: 11px;
+    font-size: 1.56rem;
+    font-weight: bold;
+    border: 1px solid #9eb0b2;
+    border-radius: 2px;
+}
+
+.header-ul-info-intro .courses-now-btn:hover {
+    background-color: #fff;
+}
+
+#courses-now-title {
+    font-size: 1.56rem;
+    font-weight: 800;
+    color: #383838;
+}
+
+.courses-now-btn span {
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition: 0.2s;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.courses-now-btn:before,
+.courses-now-btn:after {
+    content: '';
+    position: absolute;
+    top: 0.67em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: 0.4s, opacity 0.6s;
+    -moz-transition: 0.4s, opacity 0.6s;
+    -o-transition: 0.4s, opacity 0.6s;
+    transition: 0.4s, opacity 0.6s;
+}
+
+.courses-now-btn:before {
+    content: attr(data-hover);
+    -webkit-transform: translate(-150%, 0);
+    -moz-transform: translate(-150%, 0);
+    -ms-transform: translate(-150%, 0);
+    -o-transform: translate(-150%, 0);
+    transform: translate(-150%, 0);
+}
+
+.courses-now-btn:hover span {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3);
+}
+
+.courses-now-btn:hover:before {
+    opacity: 1;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transition-delay: 0.4s;
+    -moz-transition-delay: 0.4s;
+    -o-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+}
+
+.header-ul-info-intro span {
+    display: block;
+    line-height: 22px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #4d4a4a;
+}
+
+.side-nav li>a>i.material-icons {
+    margin-left: 35px;
+    margin-right: 23px;
+    color: #1565c0;
+}
+
+span.badge {
+    min-width: 2rem;
+}
+
+span.badge.new {
+    background-color: #26a69a;
+}
+
+span.badge.new:after {
+    content: "";
+}
+
+#content {
+    margin: 50px 30px 50px 30px;
+    min-width: 992px;
+}
+
+section {
+    position: relative;
+}
+
+.section-title {
+    margin: 2.3rem 0 2rem;
+    font-size: 2rem;
+}
+
+@media only screen and (max-width: 992px) {
+    .side-nav.fixed {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-4-24 9:34:29 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="per.agreysky.bean.AutoLog" table="AUTOLOG">
+        <id name="auditLogId" type="java.lang.Long">
+            <column name="AUDITLOGID" />
+            <generator class="identity" />
+        </id>
+        <property name="entityId" type="java.lang.Long">
+            <column name="ENTITYID" />
+        </property>
+        <property name="action" type="java.lang.String">
+            <column name="ACTION" />
+        </property>
+        <property name="detail" type="java.lang.String">
+            <column name="DETAIL" />
+        </property>
+        <property name="createdDate" type="java.util.Date">
+            <column name="CREATEDDATE" />
+        </property>
+        <property name="entityName" type="java.lang.String">
+            <column name="ENTITYNAME" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<package name="defult" extends="json-default"  namespace="/" strict-method-invocation="true">
+	
+		<interceptors>
+	<!-- 声明拦截器 -->
+       <interceptor name="errorInterceptor" class="pers.agreysky.idle.util.ErrorInterceptor" />
+	<!-- 配置拦截器栈 -->
+       <interceptor-stack name="myErrorInterceptor">
+                   <interceptor-ref name="defaultStack" />
+                   <interceptor-ref name="errorInterceptor" />
+       </interceptor-stack>
+	</interceptors>
+	<!-- 覆盖底层的拦截器栈 对包中的所有action都有效 -->
+	<default-interceptor-ref name="myErrorInterceptor"/>
+	            
+	            <global-results>
+	                    <result name="errorMsg">/errorMsg.jsp</result>
+	            </global-results>
+	            <global-exception-mappings>
+	                    <exception-mapping result="errorMsg" exception="java.lang.Exception"></exception-mapping>
+	        </global-exception-mappings>
+	
+		<!-- 用户登录注册 -->
+		<action name="loginregister" class="loginregister">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		<!-- 用户建议 -->
+		<action name="advice" class="advice">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+        </action>
+		<!-- 交友 -->
+		<action name="myFriend" class="myFriend">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result></action>
+		<!-- 闲置 -->
+		<action name="myItem" class="myItem">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		<!-- 帮助 -->
+		<action name="myHelp" class="myHelp">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		<!-- 兼职 -->
+		<action name="myJob" class="myJob">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		<!-- 查找一类物品或搜索物品 -->
+		<action name="items" class="items">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		<!-- 找回密码 -->
+		<action name="findPwdByPhone" class="findPwdByPhone">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		<!-- 个人信息 -->
+		<action name="personDetails" class="personDetails">
+			<result type="json">
+	            	<param name="excludeNullProperties">true</param>
+	            	<param name="root">resultVO</param>  
+	        </result>
+		</action>
+		
+
+
+		
+		
+	</package>
+	<!-- 设置将Struts2的类交给Spring来完成 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 设置web应用编码集，为获得表单提交的中文信息 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<!-- 指定上传文件的临时保存路径，为上传图片封面照片 -->
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<!-- 设置支持动态方法调用，为在页面上用多个功能按钮实现不同的功能 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+	
+	
+	
+</struts>

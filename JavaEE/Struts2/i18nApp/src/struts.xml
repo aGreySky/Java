@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+<constant name="struts.costom.i18n.resources" value="mess"></constant>
+	<package name="defult" extends="struts-default"  namespace="/" strict-method-invocation="true">
+		<interceptors>
+	 		<interceptor name="myInterceptor" class="interceptor.CheckInterceptor"></interceptor>
+	 	</interceptors>
+		<action name="*" class="action.{1}Action">
+			<result name="success">/success.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="subscribe">/subscribe.jsp</result>
+			<interceptor-ref name="defaultStack"></interceptor-ref>	
+			<interceptor-ref name="myInterceptor"></interceptor-ref>
+		</action>
+</package>
+</struts>

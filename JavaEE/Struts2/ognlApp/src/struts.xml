@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="defult" extends="struts-default"  namespace="/" strict-method-invocation="true">
+		<action name="*" class="action.ognlTestAction">
+			<result name="success">/{1}.jsp</result>
+		</action>
+</package>
+<!-- 静态方法调用 -->
+ <constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+</struts>

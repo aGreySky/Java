@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="defult" extends="struts-default"  namespace="/" strict-method-invocation="true">
+		<action name="Save" class="saveAction">
+			<result name="success">/save_success.jsp</result>
+			<result name="error">/save.jsp</result>
+		</action>
+</package>
+<!-- 设置将Struts2的类交给Spring来完成 -->
+	<constant name="struts.objectFactory" value="spring" />
+</struts>

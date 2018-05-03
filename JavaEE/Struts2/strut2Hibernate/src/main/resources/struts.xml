@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="default" extends="struts-default"  namespace="/" strict-method-invocation="true">
+		<!-- 配置使用 paramsPrepareParamsStack 作为默认的拦截器栈 -->
+		<!-- 修改 PrepareInterceptor 拦截器的 alwaysInvokePrepare 属性值为 false -->
+		<interceptors>
+			<interceptor-stack name="agreyskystack">
+				<interceptor-ref name="paramsPrepareParamsStack">
+					<param name="prepare.alwaysInvokePrepare">true</param>
+				</interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="agreyskystack" />
+	
+		<action name="t-list" class="per.agreysky.action.TeachersAction" method="list">
+			<result name="success">/t-list.jsp</result>
+		</action>
+		
+		<action name="t-*" class="per.agreysky.action.TeachersAction" 
+			method="{1}">
+			<result name="{1}">/t-{1}.jsp</result>
+			<result name="success" type="redirectAction">t-list</result>
+			<allowed-methods>delete,update,edit,add</allowed-methods> 
+		</action>
+	</package>
+</struts>

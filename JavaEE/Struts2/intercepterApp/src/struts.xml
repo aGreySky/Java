@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="defult" extends="struts-default"  namespace="/" strict-method-invocation="true">
+		<interceptors>
+			<interceptor name="authority"
+				class="interceptor.AuthorityInterceptor">
+			</interceptor>
+			<interceptor-stack name="authorityStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<action name="*">
+			<result>/{0}.jsp</result>
+			<result name="login">/login.jsp</result>
+			<interceptor-ref name="authorityStack" />
+		</action>
+		
+		
+		<action name="login" class="action.LoginAction">
+			<result name="success">/succ.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
+</package>
+</struts>

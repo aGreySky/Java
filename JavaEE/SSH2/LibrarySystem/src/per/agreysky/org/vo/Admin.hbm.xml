@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-25 21:10:18 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+ <class catalog="LibrarySystem" entity-name="Admin" name="per.agreysky.org.vo.Admin" table="admin">
+  		<id name="adminId" type="string">
+            <column name="adminId" length="8" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="8" not-null="true" />
+        </property>
+        <property name="password" type="string">
+   			<column length="20" name="password" not-null="true"/>
+  		</property>
+        <property name="sex" type="boolean">
+            <column name="sex" not-null="true" />
+        </property>
+        <property name="born" type="java.util.Date">
+            <column name="born" length="19" not-null="true" />
+        </property>
+        <property generated="never" lazy="false" name="photo">
+            <column name="photo" />
+        </property>
+ </class>
+</hibernate-mapping>

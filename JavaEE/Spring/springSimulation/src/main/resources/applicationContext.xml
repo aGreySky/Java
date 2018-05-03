@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <beans>
+     <bean id="emp0" class="per.agreysky.springSimulation.bean.Employee"></bean>
+     <bean id="emp1" class="per.agreysky.springSimulation.bean.Employee"></bean>
+     <bean id="emp2" class="per.agreysky.springSimulation.bean.Employee"></bean>
+ </beans>

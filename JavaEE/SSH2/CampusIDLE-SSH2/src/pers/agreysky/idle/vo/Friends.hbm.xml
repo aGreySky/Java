@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-18 16:55:56 by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="campusidle" dynamic-insert="false" dynamic-update="false" mutable="true" name="pers.agreysky.idle.vo.Friends" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="friends">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="pers.agreysky.idle.vo.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="userId" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="name" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="overview" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="overview" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="way" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="way" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="contact" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="contact" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sex" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="sex" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="label" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="label" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="picture" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="picture" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

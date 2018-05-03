@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="defult" extends="struts-default"  namespace="/" strict-method-invocation="true">
+		<!-- 管理员登录 -->
+		<action name="adminLogin" class="loginAction" method="adminLogin">
+			<result name="success">/bookQuery.jsp</result>
+			<result name="error">/adminLogin.jsp</result>
+		</action>
+		<!-- 读者登录 -->
+		<action name="studentLogin" class="loginAction" method="studentLogin">
+			<result name="success">/bookQuery.jsp</result>
+			<result name="error">/studentLogin.jsp</result>
+		</action>
+		<!-- 查询指定图书 -->
+		<action name="findBook" class="findAction" method="findOnePageBook">
+			<result name="success">/bookQuery.jsp</result>
+		</action>
+		<!-- 跳转到借书页 -->
+		<action name="sendToLendBook" class="lendBookAction" method="sendToLendBook">
+			<result name="success">/lendBook.jsp</result>
+		</action>
+		<!-- 查询已借图书 -->
+		<action name="selectBook" class="lendQueryAction" method="selectAllLend">
+			<result name="success">/lendQuery.jsp</result>
+		</action>
+		<!-- 跳转到还书页 -->
+		<action name="sendToReturnBook" class="returnBookAction" method="sendToReturnBook">
+			<result name="success">/returnBook.jsp</result>
+		</action>
+		<!-- 借书 -->
+		<action name="lendBook" class="lendBookAction">
+			<result name="success">/lendBook.jsp</result>
+			<!-- struts2.5版本需要加allowed-methods -->
+			<allowed-methods>readBook,lendBook</allowed-methods>
+		</action>
+		<!-- 还书 -->
+		<action name="returnBook" class="returnBookAction">
+			<result name="success">/returnBook.jsp</result>
+			<!-- struts2.5版本需要加allowed-methods -->
+			<allowed-methods>readBook,returnBook</allowed-methods>
+		</action>
+		<!-- 读者管理 -->
+		<action name="student" class="studentAction">
+			<result name="success">/studentManage.jsp</result>
+			<result name="input">/studentManage.jsp</result>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">*</param>
+				<param name="validation.includeMethods">addStudent,updateStudent</param>
+			</interceptor-ref>
+			<!-- struts2.5版本需要加allowed-methods -->
+			<allowed-methods>addStudent,deleteStudent,updateStudent,selectStudent</allowed-methods>
+		</action>
+		<!-- 图书管理 -->
+		<action name="book" class="bookAction">
+			<result name="success">/bookManage.jsp</result>
+			<result name="input">/bookManage.jsp</result>
+			<interceptor-ref name="defaultStack">
+				<param name="validation.excludeMethods">*</param>
+				<param name="validation.includeMethods">addBook,updateBook</param>
+			</interceptor-ref>
+			<!-- struts2.5版本需要加allowed-methods -->
+			<allowed-methods>addBook,deleteBook,updateBook,selectBook</allowed-methods>
+		</action>
+		<!-- 借还书确认列表 -->
+		<action name="uncheckList" class="unCheckLendAndReturnAction" method="findOnePageUnCheckLendAndReturn">
+			<result name="success">/lendAndReturnConfirm.jsp</result>
+		</action>
+		
+		<!-- 借书确认 -->
+		<action name="lendBookConfirm" class="unCheckLendAndReturnAction" method="lendBookConfirm">
+			<result name="success" type="redirect">/uncheckList.action</result>
+		</action>
+		<!-- 还书确认 -->
+		<action name="returnRequestConfirm" class="unCheckLendAndReturnAction" method="returnRequestConfirm">
+			<result name="success" type="redirect">/uncheckList.action</result>
+		</action>
+		<!-- 读取照片 -->
+		<action name="getImage" class="photoAction" method="getImage"></action>
+		<!-- 读取用户照片 -->
+		<action name="getStuImage" class="photoAction" method="getStuImage"></action>
+		
+	</package>
+	<!-- 设置将Struts2的类交给Spring来完成 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 设置web应用编码集，为获得表单提交的中文信息 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<!-- 指定上传文件的临时保存路径，为上传图片封面照片 -->
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<!-- 设置支持动态方法调用，为在页面上用多个功能按钮实现不同的功能 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
+</struts>

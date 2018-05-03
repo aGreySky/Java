@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 2018-4-18 16:55:56 by Hibernate Tools 5.2.5.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="campusidle" dynamic-insert="false" dynamic-update="false" mutable="true" name="pers.agreysky.idle.vo.User" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="user">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="username" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="username" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="password" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="useremail" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="useremail"/>
+        </property>
+        <property generated="never" lazy="false" name="phone" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="phone" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="picture" optimistic-lock="true" type="string" unique="false">
+            <column length="50" name="picture"/>
+        </property>
+        <property generated="never" lazy="false" name="state" optimistic-lock="true" type="string" unique="false">
+            <column length="5" name="state" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="code" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="code"/>
+        </property>
+        <property generated="never" lazy="false" name="itemsNum" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="itemsNum"/>
+        </property>
+        <property generated="never" lazy="false" name="signature" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="signature"/>
+        </property>
+        <property generated="never" lazy="false" name="beLikeNum" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="beLikeNum"/>
+        </property>
+        <property generated="never" lazy="false" name="attentionNum" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="attentionNum"/>
+        </property>
+        <property generated="never" lazy="false" name="fansNum" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="fansNum"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="advices" optimistic-lock="true" sort="unsorted" table="advice">
+            <key on-delete="noaction">
+                <column name="userId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Advice" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="fansesForOwnerId" optimistic-lock="true" sort="unsorted" table="fans">
+            <key on-delete="noaction">
+                <column name="ownerId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Fans" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="fansesForFansId" optimistic-lock="true" sort="unsorted" table="fans">
+            <key on-delete="noaction">
+                <column name="fansId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Fans" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="helpses" optimistic-lock="true" sort="unsorted" table="helps">
+            <key on-delete="noaction">
+                <column name="userId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Helps" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="likesesForLikerId" optimistic-lock="true" sort="unsorted" table="likes">
+            <key on-delete="noaction">
+                <column name="likerId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Likes" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="itemses" optimistic-lock="true" sort="unsorted" table="items">
+            <key on-delete="noaction">
+                <column name="userId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Items" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="likesesForOwnerId" optimistic-lock="true" sort="unsorted" table="likes">
+            <key on-delete="noaction">
+                <column name="ownerId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Likes" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="jobses" optimistic-lock="true" sort="unsorted" table="jobs">
+            <key on-delete="noaction">
+                <column name="userId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Jobs" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="friendses" optimistic-lock="true" sort="unsorted" table="friends">
+            <key on-delete="noaction">
+                <column name="userId" not-null="true"/>
+            </key>
+            <one-to-many class="pers.agreysky.idle.vo.Friends" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

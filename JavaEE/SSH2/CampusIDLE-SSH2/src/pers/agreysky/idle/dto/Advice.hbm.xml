@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-20 21:00:47 by Hibernate Tools 5.2.5.Final -->
+<hibernate-mapping>
+ <class catalog="campusidle" name="pers.agreysky.idle.dto.Advice" table="advice">
+  <id name="id" type="java.lang.Integer">
+   <column name="id"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="pers.agreysky.idle.dto.User" fetch="select" name="user" lazy="false">
+   <column name="userId" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="advice" type="string">
+   <column length="100" name="advice" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

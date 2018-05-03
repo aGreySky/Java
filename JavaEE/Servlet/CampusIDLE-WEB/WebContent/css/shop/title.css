@@ -1,0 +1,203 @@
+*{
+	margin:0;
+	padding:0;}
+a{
+	text-decoration: none;
+}
+
+.firstPage_head{
+	width:100%;
+	height:50px;
+	background-color:rgba(204,204,204,0.5);
+	}
+.head_log{
+	float:left;
+	font-family:MV Boli;
+	font-size:24px;
+	}
+.head_wel{
+	padding:11px;
+	margin-right:100px;
+	float:right;
+	}
+
+.logo_search{
+	margin:0 auto;
+	width:1050px;
+	height:80px;
+	margin-top:30px;
+	}
+.logo{
+	width:150px;
+	height:80px;
+	font-size:30px;
+	float:left;
+	}
+.search{
+	width:600px;
+	height:40px;
+	background-color:rgba(255,255,255,1);
+	float:left;
+	margin-left:100px;
+	margin-top:20px;
+	border:1px solid rgba(255,0,102,1);
+	}
+.search_text{
+	width:449px;
+	height:40px;
+	font-size:18px;
+	border:0px;
+	outline:0;
+	padding-left:10px;
+	}
+.search_button{
+		width:80px;
+		height:20px;
+		background-color:rgba(255,0,102,1);
+		float:right;
+		color:rgba(255,255,255,1);
+		text-align:center;
+		padding:10px;
+		}
+#find{
+	 display: block;
+  margin: 0 auto;
+  line-height: 20px;
+  font-size: 20px;
+  color: #fff;
+  background:rgba(255,51,102,1);
+  border: 0;
+}
+.return{
+	float:left;
+	display:none;
+	margin:30px;
+}
+.return img{
+	width: 30px;
+	margin-top:20px;
+}
+.return a{
+	font-size:24px;
+	color:#FF0000;
+}			
+.shop_cont {
+  margin: 50px auto 0;
+  width:1100px;
+   }
+  .shop_cont .waitItem_show,
+  .shop_cont .Item_show,
+  .shop_cont .myItem_show {
+    display: none; }
+  .shop_cont .active {
+    width:1200px;
+    display: block; }
+
+.shop_nav {
+  border-radius:5px;
+  width: 500px;
+  height: 50px;
+  background:rgba(255,51,102,1);
+  margin-bottom: 20px; }
+
+.nav_slider {
+	margin-left:20px;
+	margin-top:10px;
+	background:rgba(255,51,102,1);
+  display: inline-block; }
+  .nav_slider a {
+	  text-align:center;
+    display: inline-block;
+    width: 110px;
+	height: 40px;
+    line-height: 35px;
+    font-size: 18px;
+    color:rgba(255,255,255,1);
+	background:rgba(255,51,102,1);
+    text-decoration: none;
+ }
+  .nav_slider .focus {
+	  background:rgba(255,255,255,1);
+	  color:rgba(255,51,102,1); }
+
+div.foreach{
+	width:250px;
+	height:335px;
+	border:1px solid rgba(153,153,153,1);
+ 	      float:left;
+	      margin: 0px 30px 30px 0px; 
+	   } 
+	   div dd{
+	      margin:0px;
+	   }
+	   div dd.dd_name
+	   {
+		   padding:5px 0px 0px 10px;
+		   font-size:16px;
+	      
+	   }
+	   div dd.dd_type
+	   {
+		   padding:5px 0px 0px 10px;
+		   font-size:16px;
+	      
+	   }
+	   div dd.dd_way
+	   {
+		   padding:5px 0px 0px 10px;
+		   font-size:16px;
+	      
+	   }
+	   div dd.dd_price
+	   {
+		  font-size:24px;
+		  padding:5px 0px 0px 10px;
+	      color:red;
+	   }
+	    div dd.dd_user
+	   {
+		  font-size:16px;
+		  padding:5px 0px 0px 10px;
+	      color:#000;
+	   }
+	   div dd.dd_user a{
+	   		text-decoration: none;
+	   		color:#8e8e8e;
+	   }
+	   div dd.del_button{
+		   margin:5px 0px 0px 10px;
+		   }
+	  .clear{
+		  clear:both;
+		  width:auto;
+	  }
+
+.change_page{
+	padding:12px 20px;
+	float:left;
+	border:1px solid rgba(204,204,204,1);
+	margin-left:10px;
+	background:transparent;
+	outline:none;
+	text-decoration: none;
+	}
+.change_page:hover{
+	background-color:rgba(204,204,204,0.3);
+	}
+.change_nopage{
+	padding:12px 20px;
+	float:left;
+	margin-left:10px;
+	background-color:rgba(204,204,204,0.3);
+	outline:none;
+	text-decoration: none;
+	}
+.up_button{
+	width:80px;
+	height: 26.6px;
+}
+.level{
+	width: 20px;
+	height: 20px;
+}
+

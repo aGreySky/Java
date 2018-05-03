@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-20 21:00:47 by Hibernate Tools 5.2.5.Final -->
+<hibernate-mapping>
+ <class catalog="campusidle" name="pers.agreysky.idle.dto.Friends" table="friends">
+  <id name="id" type="java.lang.Integer">
+   <column name="id"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="pers.agreysky.idle.dto.User" fetch="select" name="user" lazy="false">
+   <column name="userId" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="overview" type="string">
+   <column length="100" name="overview" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="way" type="string">
+   <column length="100" name="way" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="contact" type="string">
+   <column length="100" name="contact" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="picture" type="string">
+   <column length="100" name="picture" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="sex" type="string">
+   <column length="100" name="sex" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="label" type="string">
+   <column length="100" name="label" not-null="true"/>
+  </property>
+   <property generated="never" lazy="false" name="name" type="string">
+   <column length="100" name="name" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="defult" extends="struts-default"  namespace="/" strict-method-invocation="true">
+	<!-- 上传action -->
+		<action name="Upload" class="action.UploadAction" >
+		<!-- struts2自带的文件拦截器 -->
+<!-- 		    <interceptor-ref name="fileUpload">   -->
+<!-- 			    <param name ="allowedTypes">   -->
+<!-- 			          image/gif,image/jpeg,image/pjpeg   -->
+<!-- 			    </param >   -->
+<!-- 			    <param name="maximumSize">     -->
+<!-- 			          50   -->
+<!-- 			    </param>     -->
+<!-- 		    </interceptor-ref>   -->
+<!-- 		    <interceptor-ref name ="fileUploadStack"/>   -->
+<!-- 		    <interceptor-ref name = "defaultStack"/>   -->
+			<result name="success">/success.jsp</result>
+			<result name="error">/upload.jsp</result>
+			<result name="input">/upload.jsp</result>
+		</action>
+		
+		<!-- 下载action -->
+		<action name="Download" class="action.DownloadAction">
+			<param name="downPath">/download</param>
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename=${downloadFileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+			<result name="error">/download.jsp</result>
+</action>
+		
+</package>
+<constant name="struts.multipart.maxSize" value="1000000000"/>
+</struts>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd" xmlns:tx="http://www.springframework.org/schema/tx">
+
+
+	<!-- 配置数据库驱动 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="jdbc:mysql://localhost:3306/bookSystem"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="zzq123456"></property>
+	</bean>
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>per/agreysky/vo/Book.hbm.xml</value>
+				<value>per/agreysky/vo/Lend.hbm.xml</value>
+				<value>per/agreysky/vo/Login.hbm.xml</value>
+				<value>per/agreysky/vo/Student.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	<bean id="baseDAO" class="per.agreysky.dao.BaseDAO">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 通过继承baseDAO对各Dao进行依赖注入 -->
+	<bean id="bookDao" class="per.agreysky.dao.impl.BookDaoImpl" parent="baseDAO"/>
+	<bean id="loginDao" class="per.agreysky.dao.impl.LoginDaoImpl" parent="baseDAO"/>
+	<bean id="studentDao" class="per.agreysky.dao.impl.StudentDaoImpl" parent="baseDAO"/>
+	<bean id="lendDao" class="per.agreysky.dao.impl.LendDaoImpl" parent="baseDAO"/>
+	<!-- 对业务逻辑进行依赖注入 -->
+	<bean id="bookservice" class="per.agreysky.service.impl.BookServiceImpl">
+		<property name="bookDao" ref="bookDao"></property>
+	</bean>
+	<bean id="loginservice" class="per.agreysky.service.impl.LoginServiceImpl">
+		<property name="loginDao" ref="loginDao"></property>
+	</bean>
+	<bean id="studentservice" class="per.agreysky.service.impl.StudentServiceImpl">
+		<property name="studentDao" ref="studentDao"></property>
+	</bean>
+	<bean id="lendservice" class="per.agreysky.service.impl.LendServiceImpl">
+		<property name="lendDao" ref="lendDao"></property>
+	</bean>
+	
+	<bean id="loginAction" class="per.agreysky.action.LoginAction">
+		<property name="loginservice" ref="loginservice"/>
+	</bean>
+	<bean id="lendAction" name="" class="per.agreysky.action.LendAction">
+		<property name="lendservice" ref="lendservice"></property>
+		<property name="bookservice" ref="bookservice"></property>
+		<property name="studentservice" ref="studentservice"></property>
+	</bean>
+	<bean id="bookAction" class="per.agreysky.action.BookAction">
+		<property name="bookservice" ref="bookservice"></property>
+		<property name="lendservice" ref="lendservice"></property>
+	</bean>	
+</beans>

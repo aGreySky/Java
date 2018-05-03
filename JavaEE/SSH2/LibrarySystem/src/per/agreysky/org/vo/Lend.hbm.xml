@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-9-25 21:10:18 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="per.agreysky.org.vo.Lend" table="lend" catalog="LibrarySystem">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="bookId" type="int">
+            <column name="bookId" not-null="true" />
+        </property>
+        <property name="readerId" type="string">
+            <column name="readerId" length="8" not-null="true" />
+        </property>
+        <property name="ISBN" type="string">
+            <column name="ISBN" length="20" not-null="true" />
+        </property>
+        <property name="ltime" type="java.util.Date">
+            <column name="lTime" length="19" not-null="true" />
+        </property>
+        <property name="lendConfirm" type="boolean">
+            <column name="lendConfirm" not-null="true" />
+        </property>
+        <property name="returnRequest" type="boolean">
+            <column name="returnRequest" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

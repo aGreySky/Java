@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="emp" class="bean.Employee">  
+        <property name="id" value="1" />  
+        <property name="name" value="周志强"></property>
+        <property name="age" value="21"></property>
+        <property name="partSet">  
+            <set>  
+                <value>人事部</value>  
+                <value>财务部</value>  
+                <value>管理部</value>  
+            </set>  
+        </property>  
+        <property name="schoolList">  
+            <list>  
+                <value>实验小学</value>  
+                <value>龙泉中学</value>  
+                <value>成都大学</value>  
+            </list>  
+        </property>  
+        <property name="baseProperties">  
+            <props>  
+                <prop key="sex">男</prop>  
+                <prop key="height">180cm</prop>  
+                <prop key="weight">65kg</prop>  
+            </props>  
+        </property>  
+        <property name="parentMap">  
+            <map>  
+                <entry key="father" value="周XX" />  
+                <entry key="mather" value="毛XX" />  
+            </map>  
+        </property>  
+    </bean>  
+		
+	
+	
+</beans>

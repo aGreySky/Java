@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-10-20 21:00:47 by Hibernate Tools 5.2.5.Final -->
+<hibernate-mapping>
+ <class catalog="campusidle" name="pers.agreysky.idle.dto.User" table="user">
+  <id name="id" type="java.lang.Integer">
+   <column name="id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="username" type="string">
+   <column length="100" name="username" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="password" type="string">
+   <column length="100" name="password" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="useremail" type="string">
+   <column length="100" name="useremail"/>
+  </property>
+  <property generated="never" lazy="false" name="phone" type="string">
+   <column length="100" name="phone"/>
+  </property>
+  <property generated="never" lazy="false" name="picture" type="string">
+   <column length="100" name="picture"/>
+  </property>
+  <property generated="never" lazy="false" name="state" type="string">
+   <column length="100" name="state" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="code" type="string">
+   <column length="100" name="code"/>
+  </property>
+  <property generated="never" lazy="false" name="itemsNum" type="string">
+   <column length="100" name="itemsNum" />
+  </property>
+  <property generated="never" lazy="false" name="signature" type="string">
+   <column length="100" name="signature" />
+  </property>
+  <property generated="never" lazy="false" name="beLikeNum" type="string">
+   <column length="100" name="beLikeNum" />
+  </property>
+  <property generated="never" lazy="false" name="attentionNum" type="string">
+   <column length="100" name="attentionNum" />
+  </property>
+  <property generated="never" lazy="false" name="fansNum" type="string">
+   <column length="100" name="fansNum" />
+  </property>
+ </class>
+
+</hibernate-mapping>
